@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/windsor/.svn'
+let g:netrw_dirhist_2='/home/windsor/rel/atbin.AC'
+let g:netrw_dirhist_3='/home/windsor/.vim'
+let g:netrw_dirhist_4='/home/windsor/rel/etc_test'
+let g:netrw_dirhist_5='/home/windsor/rel/atbin.AC'
+let g:netrw_dirhist_6='/home/windsor/trunk/KnightExchangeEngine'
+let g:netrw_dirhist_7='/home/windsor/DE/DeltaHedgingEngine'
