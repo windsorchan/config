@@ -1,0 +1,32 @@
+# jumanji configuration
+
+# flash
+set plugin_blocker false
+
+# search engines
+searchengine google http://www.google.com/search?q=%s
+searchengine wiki http://en.wikipedia.org/w/index.php?search=%s
+
+# browser settings
+set homepage http://www.google.com/
+set auto_save 60
+set single_instance true
+set session_restored true
+set default_session_name start
+
+# Use privoxy for adblocking
+#set proxy localhost:8118 
+
+# look n feel
+set font Droid Sans normal 10
+#set stylesheet file:///home/inxs/.config/jumanji/style.css 
+
+# follow hints
+script ~/.config/jumanji/scripts/hints.js
+
+# downloads
+set download_dir /home/windsor/downloads/
+set download_command urxvtc -e sh -c "wget --load-cookies ~/.config/jumanji/cookies '%s' -O %s";
+
+# keybindings
+map <C-q> quit
