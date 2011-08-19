@@ -1,0 +1,34 @@
+[general]
+# NOTE: cronjob calls the quiet UI with -u
+ui = TTY.TTYUI
+accounts = GMail
+
+[Account GMail]
+localrepository = Gmail-Local
+remoterepository = Gmail-Remote
+
+[Repository Gmail-Local]
+type = Maildir
+localfolders = ~/mail/GMail
+
+[Repository Gmail-Remote]
+type = Gmail 
+remoteuser = wchan916@gmail.com
+remotepass = temp!pass
+#realdelete = no
+
+# line breaks added for readability
+nametrans = lambda folder: re.sub('.*spam$', 'spam',
+    re.sub('.*drafts$', 'drafts', 
+    re.sub('.*sent mail$', 'sent', 
+    re.sub('.*starred$', 'flagged', 
+    re.sub('.*trash$', 'trash', folder.lower())))))
+folderfilter = lambda foldername: foldername not in '[Gmail]/All Mail'
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes"
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
