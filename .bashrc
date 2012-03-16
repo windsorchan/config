@@ -3,6 +3,7 @@
 #-------------------------------------------------------------
 export PS1='\[\033[0;34m\][\T] \[\033[00;33m\][\W]\[\033[0;31m\] :\[\033[0m\] '
 export PATH='/home/windsor/bin':$PATH
+export LD_LIBRARY_PATH='/home/windsor/lib:/usr/local/lib'
 
 #-------------------------------------------------------------
 # Personal Aliases
@@ -16,21 +17,8 @@ alias ducks='du -cks * |sort -rn |head -11' # disk hog
 alias grep='grep --color=auto'            # colourized grep
 alias egrep='egrep --color=auto'          # colourized egrep
 alias adb='/opt/android-sdk/platform-tools/adb'
-
-yt() {
-    mplayer $(d=/proc/$(pidof plugin-container)/fd; ls --color=no  -l $d | gawk '/\/tmp\/Flash/ {print "'$d'/" $9}' )
-}
-
-ranger() {
-    command ranger --fail-unless-cd $@ &&
-    cd "$(grep \^\' ~/.config/ranger/bookmarks | cut -b3-)"
-}
-
-# Creates an archive from given directory
-mktar() { tar cvf "${1%%/}.tar" "${1%%/}/"; }
-mktgz() { tar cvzf "${1%%/}.tar.gz" "${1%%/}/"; }
-mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
-
+alias rs='redshift -l 37.7929:-122.4212 -m vidmode'
+alias python='python2'
 
 #-------------------------------------------------------------
 # Colored man pages
@@ -78,6 +66,11 @@ alias lt='ls -ltr'         # sort by date, most recent last
 alias lm='ls -al |more'    # pipe through 'more'
 alias lr='ls -lR'          # recursive ls
 alias tree='tree -Csu'     # nice alternative to 'recursive ls'
+
+#-------------------------------------------------------------
+# Git Auto Completion
+#-------------------------------------------------------------
+source ~/.git-completion.bash
 
 #-------------------------------------------------------------
 # Functions
@@ -130,3 +123,20 @@ reload()
     sudo /etc/rc.d/$arg reload
   done
 }
+
+# Creates an archive from given directory
+mktar() { tar cvf "${1%%/}.tar" "${1%%/}/"; }
+mktgz() { tar cvzf "${1%%/}.tar.gz" "${1%%/}/"; }
+mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
+
+ranger()
+{
+    command ranger --fail-unless-cd $@ &&
+    cd "$(grep \^\' ~/.config/ranger/bookmarks | cut -b3-)" #'
+} 
+
+yt()
+{
+    mplayer $(d=/proc/$(pidof plugin-container)/fd; ls --color=no  -l $d | gawk '/\/tmp\/Flash/ {print "'$d'/" $9}' )
+}
+

@@ -59,7 +59,7 @@ main = do
  
 -- Basic Settings
 myTerminal      = "urxvtc"
-myWorkspaces    = ["1:vim","2:term","3:web","4:media","5:dev","6:pdf"] ++ map show [7..9]
+myWorkspaces    = ["1:term","2:web","3:media","4:pdf"] ++ map show [5..9]
 myNormalBorderColor  = "#1d1d1d"
 myFocusedBorderColor = "#535d6c"
 
@@ -73,7 +73,7 @@ myColFgNormal = "#e1e0e5"
 myColFgUnimp  = "#67686b"
 myColFgUrgent = "#e6ac32"
 
-myLauncher = "exe=`dmenu_path | dmenu -b -nb '"++ myColBgNormal ++ "' -nf '" ++ myColFgNormal ++ "' -fn 'Droid Serif-12' -p '$'` && eval \"exec $exe\""
+myLauncher = "exe=`dmenu_path_c | dmenu -b -nb '"++ myColBgNormal ++ "' -nf '" ++ myColFgNormal ++ "' -fn 'Droid Serif-12' -p '$'` && eval \"exec $exe\""
 myLeft = "dzen2 -x 0 -y 0 -w 1000 -ta l -fn '" ++ myFont ++ "' -bg " ++ myDzenBGColor ++ " -fg " ++ myDzenFGColor
 myRight = "conky -c ~/.dzen_conkyrc | dzen2 -ta r -fn '" ++ myFont ++ "' -x 1000 -y 0 -w 920"
  
@@ -97,17 +97,16 @@ myManageHook = mainManageHook <+> manageDocks
         classOrName x = className =? x <||> stringProperty "WM_NAME" =? x
         classOrTitle x = className =? x <||> title =? x
 
-        myFloats = [ ("MPlayer" , doFloat )
+        myFloats = [  ("MPlayer" , doCenterFloat)
                     , ("Xmessage" , doCenterFloat)
                     , ("XFontSel" , doCenterFloat)
-                    , ("Eclipse" , doCenterFloat)
                     , ("jclient-LoginFrame" , doCenterFloat)
                     , ("IB Gateway" , doCenterFloat)
+                    , ("Figure 1" , doCenterFloat)
                     ]
 
-        myShifts = [ ("Zathura" , "6:pdf" )
-                    , ("Evince" , "6:pdf" )
-                    , ("Eclipse" , "5:dev" )
+        myShifts = [  ("Zathura" , "4:pdf" )
+                    , ("Evince" , "4:pdf" )
                     ]
 
  

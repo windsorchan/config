@@ -1,2 +1,0 @@
-tagbar.vba: call delete('/home/windsor/.vim/plugin/tagbar.vim')|call delete('/home/windsor/.vim/syntax/tagbar.vim')|call delete('/home/windsor/.vim/doc/tagbar.txt')
-screen.vba: call delete('/home/windsor/.vim/autoload/screen.vim')|call delete('/home/windsor/.vim/doc/screen.txt')|call delete('/home/windsor/.vim/plugin/screen.vim')
