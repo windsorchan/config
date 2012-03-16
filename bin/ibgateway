@@ -1,0 +1,4 @@
+#!/bin/bash
+CLASSPATH=$(echo /home/windsor/bin/IBJts/*.jar | sed 's/ /:/g')
+SRCDIR='/home/windsor/bin/IBJts'
+java -cp $CLASSPATH -Dsun.java2d.noddraw=true -Xmx512M ibgateway.GWClient $SRCDIR
